@@ -32,6 +32,7 @@ class ApkBuilderTask_r14 extends AndroidAntTask {
         outfolder: project.libsDir,
         resourcefile: ant['resource.package.file.name'],
         apkfilepath: androidConvention.unsignedArchivePath,
+        debugpackaging: args.get('debug', false),
         debugsigning: args.get('sign', false),
         hascode: ant['manifest.hasCode'],
         verbose: args.get('verbose', false)) {

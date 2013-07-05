@@ -33,6 +33,7 @@ class AndroidPackageTask extends DefaultTask {
   String keyStorePassword
   String keyAliasPassword
 
+  boolean debug
   boolean verbose
   List<String> dexParams
 
@@ -130,6 +131,6 @@ class AndroidPackageTask extends DefaultTask {
 
     logger.info("Packaging resources")
     sdkTools.aaptexec.execute(command: 'package')
-    sdkTools.apkbuilder.execute('sign': false, 'verbose': verbose)
+    sdkTools.apkbuilder.execute('sign': false, 'verbose': verbose, 'debug': debug)
   }
 }
