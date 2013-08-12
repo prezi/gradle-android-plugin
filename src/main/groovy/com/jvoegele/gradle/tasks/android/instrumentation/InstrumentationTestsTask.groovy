@@ -134,7 +134,7 @@ class InstrumentationTestsTask extends AdbExec {
   private void publishTestReport(def runConfig, def reportFile) {
     logger.info("Publishing test results from $reportFile to $testReportsTargetPath")
 
-    def pullTestReport = new AdbExec()
+    def pullTestReport = project.task('publishTestReport', type: AdbExec, overwrite: true)
     pullTestReport.args "pull", "$reportFile", "$testReportsTargetPath"
     pullTestReport.exec()
   }
